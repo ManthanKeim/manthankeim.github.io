@@ -6,4 +6,4 @@ I wouldn't consider myself a designer, but I've done my best to make my site acc
 
 See my portfolio at [manthankeim.github.io.com](https://manthankeim.github.io).
 
-Last LinkedIn updated: 11 April, 2020
+Last LinkedIn updated: 18 April, 2020
