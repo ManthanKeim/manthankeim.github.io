@@ -1,4 +1,4 @@
-# Manthan Keim's Personal Website &amp; Portfolio ; MSP
+# Manthan Keim's Personal Website &amp; Portfolio
 
 This is the GitHub repository for my portfolio!
 
