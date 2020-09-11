@@ -6,4 +6,4 @@ I wouldn't consider myself a designer, but I've done my best to make my site acc
 
 See my portfolio at [manthankeim.tech](http://manthankeim.tech).
 
-Last updated: 05<sup>th</sup> September, 2020
+Last updated: 12<sup>th</sup> September, 2020
