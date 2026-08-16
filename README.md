@@ -1,8 +1,29 @@
-# Manthan Keim's Personal Website &amp; Portfolio
+# Manthan Keim — Portfolio
 
+Personal site and portfolio for [manthankeim.com](https://manthankeim.com), hosted on GitHub Pages.
 
-I wouldn't consider myself a designer, but I've done my best to make my site accessible and easy to use. If you have any suggestions, feel free to open an issue or pull request
+## Stack
 
-See my portfolio at [https://www.manthankeim.com](https://www.manthankeim.com).
+- Semantic HTML5 single-page layout
+- Modern CSS (custom properties, responsive grid, light/dark theme)
+- Minimal vanilla JavaScript (theme toggle, mobile nav, section highlighting)
+- No build step required — deploys directly from `master`
 
-Last updated: 12<sup>th</sup> August, 2024.
+## Local preview
+
+```bash
+python3 -m http.server 8080
+```
+
+Open [http://localhost:8080](http://localhost:8080).
+
+## Structure
+
+- `index.html` — main portfolio page
+- `css/styles.css` — site styles
+- `js/main.js` — theme and navigation behavior
+- `Manthan_Keim_Resume.pdf` — resume download
+
+Legacy routes (`about.html`, `work.html`, `contact.html`) redirect to page sections.
+
+Last updated: August 2026.

@@ -1,96 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-    crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="manifest" href="img/site.webmanifest">
-  <link rel="stylesheet" href="css/main.css">
-  <title>Welcome</title>
+  <meta name="description" content="Manthan Keim — Automation Engineer at Zotec Partners. Portfolio, projects, and contact.">
+  <meta name="author" content="Manthan Keim">
+  <meta property="og:title" content="Manthan Keim | Automation Engineer">
+  <meta property="og:description" content="Building reliable automation, integrations, and data workflows in Carmel, Indiana.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://manthankeim.com">
+  <meta name="theme-color" content="#0b0f17">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="manifest" href="img/site.webmanifest">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Manthan Keim | Automation Engineer</title>
 </head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<body id="bg-img">
-  <header>
-    <div class="menu-btn">
-      <div class="btn-line"></div>
-      <div class="btn-line"></div>
-      <div class="btn-line"></div>
-    </div>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Manthan Keim home">Manthan <span>Keim</span></a>
 
-    <nav class="menu">
-      <div class="menu-branding">
-        <div class="portrait"></div>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a data-nav-link href="#about">About</a></li>
+          <li><a data-nav-link href="#experience">Experience</a></li>
+          <li><a data-nav-link href="#projects">Projects</a></li>
+          <li><a data-nav-link href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="button button-secondary" href="Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
-      <ul class="menu-nav">
-        <li class="nav-item current">
-          <a href="index.html" class="nav-link">
-            Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">
-            About Me
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="work.html" class="nav-link">
-            My Work
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">
-            How To Reach Me
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="Manthan_Keim_Resume.pdf" class="nav-link" target=“_blank” >
-            Resume
-          </a>
-        </li>
-      </ul>
-    </nav>
+    </div>
   </header>
 
-  <main id="home">
-    <h1 class="lg-heading">
-      Manthan
-      <span class="text-secondary">Keim</span>
-    </h1>
-    <h2 class="sm-heading">
-      MS TLI at Purdue University | Hack Club President 2019-2021 | MSP 2020-21 | Web Scraper | Apple Teacher
-    </h2>
-    <div class="icons">
-      <a href="https://twitter.com/manthankeim">
-        <i class="fab fa-twitter fa-2x"></i>
-      </a>
-      <a href="https://www.facebook.com/manthan.keim.54">
-        <i class="fab fa-facebook fa-2x"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/manthankeim/">
-        <i class="fab fa-linkedin fa-2x"></i>
-      </a>
-      <a href="https://github.com/ManthanKeim">
-        <i class="fab fa-github fa-2x"></i>
-      </a>
-      <a href="https://gitlab.com/ManthanKeim">
-        <i class="fab fa-gitlab fa-2x"></i>
-      </a>
-      <a href="https://gitlab.com/ManthanKeim/portfolio">
-        <i class="fas fa-code-branch fa-2x"></i>
-      </a>
-      <a href="Manthan_Keim_Resume.pdf" target=“_blank” >
-        <i class="fas fa-address-card fa-2x"></i>
-      </a>
-    </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="status-dot" aria-hidden="true"></span>
+            Automation Engineer · Carmel, Indiana
+          </div>
+          <h1>Building automation that keeps teams moving.</h1>
+          <p class="lead">
+            I'm Manthan Keim, an Automation Engineer at Zotec Partners. I design scripts,
+            integrations, and data workflows that turn repetitive work into reliable systems —
+            with a research background in NLP and machine learning from Purdue.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View projects</a>
+            <a class="button button-secondary" href="#contact">Get in touch</a>
+          </div>
+          <div class="social-links" aria-label="Social links">
+            <a href="https://github.com/ManthanKeim" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-3.01.65-3.64-1.45-3.64-1.45-.49-1.24-1.19-1.57-1.19-1.57-.98-.67.07-.66.07-.66 1.08.08 1.65 1.11 1.65 1.11.96 1.65 2.52 1.17 3.13.9.1-.7.38-1.17.69-1.44-2.4-.27-4.93-1.2-4.93-5.34 0-1.18.42-2.15 1.11-2.9-.11-.27-.48-1.36.11-2.83 0 0 .91-.29 2.98 1.11a10.3 10.3 0 0 1 2.7-.36c.92 0 1.84.12 2.7.36 2.07-1.4 2.98-1.11 2.98-1.11.59 1.47.22 2.56.11 2.83.69.75 1.11 1.72 1.11 2.9 0 4.15-2.54 5.06-4.95 5.33.39.34.73 1.01.73 2.04 0 1.47-.01 2.66-.01 3.02 0 .26.18.57.69.47A10 10 0 0 0 12 2Z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/manthankeim/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8.5h4V23h-4V8.5Zm7 0h3.84v1.97h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-6.44c0-1.54-.03-3.52-2.14-3.52-2.14 0-2.47 1.67-2.47 3.39V23h-4V8.5Z"/></svg>
+            </a>
+            <a href="https://twitter.com/manthankeim" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+            </a>
+            <a href="mailto:keimmanthan@gmail.com" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m4 7 8 5 8-5M4 7v10h16V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <figure class="profile-card">
+          <img src="img/front.JPG" alt="Portrait of Manthan Keim" width="480" height="600" loading="eager">
+          <figcaption>Automation · Integrations · Data workflows</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>About</h2>
+          <p>
+            I combine engineering discipline with research curiosity — building practical automation
+            today while drawing on years of NLP, data science, and full-stack project work.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>What I do</h3>
+            <p>
+              At Zotec Partners I focus on automation and integrations that improve operational
+              reliability — from scripting repetitive tasks to working with structured data,
+              logs, and pipeline tooling.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Background</h3>
+            <ul>
+              <li>MS Technology Leadership & Innovation, Purdue University</li>
+              <li>Research experience in NLP, computational social science, and ML</li>
+              <li>Former Hack Club president and community builder</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="section" style="padding-bottom: 0;">
+          <div class="skills" aria-label="Skills">
+            <span class="skill">Python</span>
+            <span class="skill">Automation</span>
+            <span class="skill">APIs & Integrations</span>
+            <span class="skill">SQL</span>
+            <span class="skill">GitHub Actions</span>
+            <span class="skill">Docker</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">NLP / ML</span>
+            <span class="skill">Data Pipelines</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Experience</h2>
+          <p>A mix of industry automation work, research, and technical leadership.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-meta">Present</div>
+            <div>
+              <h3>Automation Engineer</h3>
+              <div class="company">Zotec Partners · Carmel, IN</div>
+              <p>
+                Building automation, integrations, and tooling that streamline workflows and improve
+                reliability across operational systems.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">Internship</div>
+            <div>
+              <h3>File Management Intern</h3>
+              <div class="company">Zotec Partners · Carmel, IN</div>
+              <p>
+                Resolved service tickets involving HL7 files, pipeline logs, patient payment data,
+                and client credentials — developing a strong foundation in healthcare data operations.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">Graduate</div>
+            <div>
+              <h3>MS Technology Leadership & Innovation</h3>
+              <div class="company">Purdue University · West Lafayette, IN</div>
+              <p>
+                Coursework and thesis work spanning NLP, data science, and computational research —
+                including projects on text classification, misinformation, and social data analysis.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">Leadership</div>
+            <div>
+              <h3>President & Founder</h3>
+              <div class="company">Hack Club MAIT</div>
+              <p>
+                Led a student community of 15–20 builders, mentoring peers on web projects,
+                apps, and technical experimentation.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Selected projects</h2>
+          <p>Highlights from research, cloud-native work, and full-stack builds on GitHub.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <img src="img/projects/project2.jpeg" alt="" loading="lazy">
+            <div class="project-body">
+              <h3>MIDAS Hiring Task</h3>
+              <p>Python data pipeline and analysis project showcasing structured data processing.</p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Data</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/ManthanKeim/MIDAS_Hiring_Task_Manthan" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="img/projects/project3.jpeg" alt="" loading="lazy">
+            <div class="project-body">
+              <h3>Reddit Flair Predictor</h3>
+              <p>NLP pipeline for classifying Reddit post flair from text content.</p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>NLP</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/ManthanKeim/Reddit-Flair-Predictor" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="img/projects/project1.jpeg" alt="" loading="lazy">
+            <div class="project-body">
+              <h3>Fullstack Cloudflare Task</h3>
+              <p>Full-stack JavaScript application with modern deployment patterns.</p>
+              <div class="project-tags">
+                <span>JavaScript</span>
+                <span>Full-stack</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/ManthanKeim/Fullstack_Task_Cloudflare" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="img/projects/project5.jpeg" alt="" loading="lazy">
+            <div class="project-body">
+              <h3>Fake News Detection</h3>
+              <p>Machine learning research project focused on misinformation classification.</p>
+              <div class="project-tags">
+                <span>ML</span>
+                <span>Research</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/ManthanKeim/Fake-News-Detection" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="img/projects/project6.jpeg" alt="" loading="lazy">
+            <div class="project-body">
+              <h3>Crossplane Contribfest</h3>
+              <p>KubeCon hands-on work with Crossplane composition functions and Kubernetes tooling.</p>
+              <div class="project-tags">
+                <span>Kubernetes</span>
+                <span>Cloud</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/ManthanKeim/contribfest" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="img/projects/project4.jpeg" alt="" loading="lazy">
+            <div class="project-body">
+              <h3>Social Digger</h3>
+              <p>Social data exploration tooling built during earlier research-focused development work.</p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Social data</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/ManthanKeim/Social-Digger" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact</h2>
+          <p>Open to conversations about automation, integrations, data workflows, and interesting engineering problems.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="card contact-card">
+            <strong>Email</strong>
+            <a href="mailto:keimmanthan@gmail.com">keimmanthan@gmail.com</a>
+          </article>
+          <article class="card contact-card">
+            <strong>Location</strong>
+            Carmel, Indiana, USA
+          </article>
+          <article class="card contact-card">
+            <strong>LinkedIn</strong>
+            <a href="https://www.linkedin.com/in/manthankeim/" target="_blank" rel="noopener noreferrer">linkedin.com/in/manthankeim</a>
+          </article>
+          <article class="card contact-card">
+            <strong>GitHub</strong>
+            <a href="https://github.com/ManthanKeim" target="_blank" rel="noopener noreferrer">github.com/ManthanKeim</a>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
-   <script src="js/main.js"></script>
-</body>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Manthan Keim. Built with semantic HTML, modern CSS, and minimal JavaScript.</p>
+    </div>
+  </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="js/main.js"></script>
+</body>
 </html>

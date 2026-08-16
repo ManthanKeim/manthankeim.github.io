@@ -1,33 +1,43 @@
-// Select DOM Items
-const menuBtn = document.querySelector('.menu-btn');
-const menu = document.querySelector('.menu');
-const menuNav = document.querySelector('.menu-nav');
-const menuBranding = document.querySelector('.menu-branding');
-const navItems = document.querySelectorAll('.nav-item');
+const root = document.documentElement;
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileNav = document.querySelector(".mobile-nav");
+const themeToggle = document.querySelector(".theme-toggle");
 
-// Set Initial State Of Menu
-let showMenu = false;
+const preferredTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+const savedTheme = localStorage.getItem("theme") || preferredTheme;
+root.setAttribute("data-theme", savedTheme);
 
-menuBtn.addEventListener('click', toggleMenu);
+themeToggle?.addEventListener("click", () => {
+  const nextTheme = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+  root.setAttribute("data-theme", nextTheme);
+  localStorage.setItem("theme", nextTheme);
+});
 
-function toggleMenu() {
-  if (!showMenu) {
-    menuBtn.classList.add('close');
-    menu.classList.add('show');
-    menuNav.classList.add('show');
-    menuBranding.classList.add('show');
-    navItems.forEach(item => item.classList.add('show'));
+menuToggle?.addEventListener("click", () => {
+  const isOpen = mobileNav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
 
-    // Set Menu State
-    showMenu = true;
-  } else {
-    menuBtn.classList.remove('close');
-    menu.classList.remove('show');
-    menuNav.classList.remove('show');
-    menuBranding.classList.remove('show');
-    navItems.forEach(item => item.classList.remove('show'));
+mobileNav?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
 
-    // Set Menu State
-    showMenu = false;
-  }
-}
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll('[data-nav-link]');
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+      });
+    });
+  },
+  { rootMargin: "-40% 0px -50% 0px" }
+);
+
+sections.forEach((section) => observer.observe(section));
