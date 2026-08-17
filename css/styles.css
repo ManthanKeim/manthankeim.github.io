@@ -393,10 +393,14 @@ button {
   border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
 }
 
-.project-card img {
+.project-card img,
+.project-card svg {
   aspect-ratio: 16 / 10;
   object-fit: cover;
   width: 100%;
+  height: auto;
+  display: block;
+  background: #0b0f17;
 }
 
 .project-body {

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="HL7 message segments">
+  <rect width="640" height="400" fill="#0b0f17"/>
+  <text x="40" y="48" fill="#38bdf8" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">HL7 v2 · parse · validate</text>
+  <rect x="40" y="80" width="560" height="52" rx="10" fill="#1a2233"/>
+  <text x="56" y="112" fill="#e8edf7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15">MSH|^~\&amp;|SENDING_APP|...|ADT^A01|MSG00001|P|2.5</text>
+  <rect x="40" y="148" width="560" height="52" rx="10" fill="#1a2233"/>
+  <text x="56" y="180" fill="#e8edf7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15">PID|1||MRN1001^^^HOSPITAL^MR||DOE^JANE</text>
+  <rect x="40" y="216" width="270" height="120" rx="12" fill="#1a2233" stroke="#38bdf8" stroke-opacity="0.4"/>
+  <text x="56" y="254" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="14">OK</text>
+  <text x="56" y="286" fill="#e8edf7" font-family="Inter, system-ui, sans-serif" font-size="18">JSON payload</text>
+  <text x="56" y="314" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="14">type · control ID · version</text>
+  <rect x="330" y="216" width="270" height="120" rx="12" fill="#1a2233"/>
+  <text x="346" y="254" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="14">Reject</text>
+  <text x="346" y="286" fill="#e8edf7" font-family="Inter, system-ui, sans-serif" font-size="18">MSH_10_MISSING</text>
+  <text x="346" y="314" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="14">structured error + path</text>
+</svg>

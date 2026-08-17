@@ -136,13 +136,13 @@
           <div class="skills" aria-label="Skills">
             <span class="skill">Python</span>
             <span class="skill">Automation</span>
-            <span class="skill">APIs & Integrations</span>
+            <span class="skill">HL7</span>
+            <span class="skill">SFTP</span>
             <span class="skill">SQL</span>
-            <span class="skill">GitHub Actions</span>
+            <span class="skill">Terraform</span>
             <span class="skill">Docker</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">NLP / ML</span>
-            <span class="skill">Data Pipelines</span>
+            <span class="skill">GitHub Actions</span>
+            <span class="skill">APIs & Integrations</span>
           </div>
         </div>
       </div>
@@ -211,10 +211,42 @@
       <div class="container">
         <div class="section-header">
           <h2>Selected projects</h2>
-          <p>Highlights from research, cloud-native work, and full-stack builds on GitHub.</p>
+          <p>Labs that match the work I do now — file transfer, HL7, Terraform — plus selected earlier builds.</p>
         </div>
 
         <div class="projects-grid">
+          <article class="project-card">
+            <img src="img/projects/file-transfer-pipeline.svg" alt="Diagram of an inbox-validate-SFTP file pipeline" loading="lazy">
+            <div class="project-body">
+              <h3>File transfer pipeline</h3>
+              <p>Validate inbound files, transform them to JSON, deliver over SFTP or locally, and audit every attempt. Terraform for a local Docker landing zone and AWS S3 ingest.</p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Terraform</span>
+                <span>SFTP</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/ManthanKeim/file-transfer-pipeline" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="img/projects/hl7-toolkit.svg" alt="HL7 v2 message parse and validate diagram" loading="lazy">
+            <div class="project-body">
+              <h3>HL7 toolkit</h3>
+              <p>Parse HL7 v2 into JSON and reject bad messages with stable error codes — missing control IDs, ADT/ORU without PID.</p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>HL7</span>
+                <span>Healthcare</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/ManthanKeim/hl7-toolkit" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
           <article class="project-card">
             <img src="img/projects/project2.jpeg" alt="" loading="lazy">
             <div class="project-body">
@@ -261,21 +293,6 @@
           </article>
 
           <article class="project-card">
-            <img src="img/projects/project5.jpeg" alt="" loading="lazy">
-            <div class="project-body">
-              <h3>Fake News Detection</h3>
-              <p>Machine learning research project focused on misinformation classification.</p>
-              <div class="project-tags">
-                <span>ML</span>
-                <span>Research</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/ManthanKeim/Fake-News-Detection" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
             <img src="img/projects/project6.jpeg" alt="" loading="lazy">
             <div class="project-body">
               <h3>Crossplane Contribfest</h3>
@@ -286,21 +303,6 @@
               </div>
               <div class="project-links">
                 <a href="https://github.com/ManthanKeim/contribfest" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img src="img/projects/project4.jpeg" alt="" loading="lazy">
-            <div class="project-body">
-              <h3>Social Digger</h3>
-              <p>Social data exploration tooling built during earlier research-focused development work.</p>
-              <div class="project-tags">
-                <span>Python</span>
-                <span>Social data</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/ManthanKeim/Social-Digger" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </article>
