@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A file transfer pipeline that validates inbound files, transforms them to JSON, delivers over SFTP, and audits every attempt.">
+  <meta name="author" content="Manthan Keim">
+  <meta property="og:title" content="A file transfer pipeline you can actually fail closed">
+  <meta property="og:description" content="Inbox, validate, transform, deliver, audit. Lab code for the managed file transfer work I do.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://manthankeim.com/blog/file-transfer-pipeline.html">
+  <meta name="theme-color" content="#0b0f17">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="manifest" href="../img/site.webmanifest">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>A file transfer pipeline you can actually fail closed | Manthan Keim</title>
+</head>
+<body data-page="blog">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="../index.html" aria-label="Manthan Keim home">Manthan <span>Keim</span></a>
+
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a data-nav-link="about" href="../index.html#about">About</a></li>
+          <li><a data-nav-link="experience" href="../index.html#experience">Experience</a></li>
+          <li><a data-nav-link="projects" href="../index.html#projects">Projects</a></li>
+          <li><a data-nav-link="research" href="../index.html#research">Research</a></li>
+          <li><a data-nav-link="blog" href="../index.html#blog">Blog</a></li>
+          <li><a data-nav-link="contact" href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="button button-secondary" href="../Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#blog">Blog</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-main">
+    <article class="container article">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="../index.html#blog">Blog</a>
+        <span aria-hidden="true">/</span>
+        <span>File transfer pipeline</span>
+      </nav>
+
+      <header class="article-hero">
+        <div class="post-meta">
+          <time datetime="2026-08-16">August 16, 2026</time>
+          <span>Python · Terraform · SFTP · Docker</span>
+        </div>
+        <h1>A file transfer pipeline you can actually fail closed</h1>
+        <p class="lead">
+          Files land in an inbox. Some are empty. Some are the same file dropped twice.
+          Some look fine until SFTP is down. This lab is a sanitized stand-in for the
+          managed file transfer work I do — landing zone, validate, transform, deliver, audit.
+        </p>
+      </header>
+
+      <figure class="article-cover">
+        <img src="../img/projects/file-transfer-pipeline.svg" alt="Inbox, validate, and SFTP delivery with Terraform landing zones and an audit trail">
+      </figure>
+
+      <p>
+        Production MFT is not a happy-path script. Partners drop CSV, JSON, and HL7 into a landing
+        zone. A worker has to decide, every time: is this file real, is it a duplicate, and did
+        delivery actually succeed? If any of those answers is no, the original stays put and the
+        failure is recorded — not swallowed by a retry that nobody can reconstruct later.
+      </p>
+
+      <p>
+        <a href="https://github.com/ManthanKeim/file-transfer-pipeline" target="_blank" rel="noopener noreferrer">file-transfer-pipeline</a>
+        is that shape without client data or vendor lock-in. Terraform stands up a local Docker
+        landing zone (and an AWS S3 sketch). Python does the rest.
+      </p>
+
+      <h2>The path a file takes</h2>
+      <p>Every inbound file goes through the same five steps:</p>
+      <ol>
+        <li><strong>Land</strong> in <code>data/inbox/</code> (or an S3 prefix in the AWS sketch).</li>
+        <li><strong>Validate</strong> size, encoding, and format. HL7 gets a fast MSH gate here; deeper parsing lives in the companion <a href="hl7-toolkit.html">HL7 toolkit</a>.</li>
+        <li><strong>Transform</strong> a good file into a canonical JSON payload.</li>
+        <li><strong>Deliver</strong> to a local sink or SFTP.</li>
+        <li><strong>Audit</strong> the attempt in SQLite, including SHA-256 so the same content is not delivered twice.</li>
+      </ol>
+
+      <h2>What I wanted to show failing</h2>
+      <p>
+        The interesting cases are the ones that turn into tickets at 2 a.m. if you only test the
+        green path:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Failure</th>
+            <th>What the pipeline does</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Empty or huge file</td>
+            <td>Reject with a stable error code</td>
+          </tr>
+          <tr>
+            <td>Bad encoding / invalid JSON / header-only CSV</td>
+            <td>Quarantine plus a <code>.error.json</code> sidecar</td>
+          </tr>
+          <tr>
+            <td>HL7 without MSH-9 or MSH-10</td>
+            <td>Reject before delivery</td>
+          </tr>
+          <tr>
+            <td>Same content dropped twice</td>
+            <td>Skip via SHA-256 audit key</td>
+          </tr>
+          <tr>
+            <td>Downstream SFTP outage</td>
+            <td>Keep the original in <code>failed/</code> and record the error</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Infra as code, not a console screenshot</h2>
+      <p>
+        I used Terraform at work, so the lab does too.
+        <code>infra/local</code> uses the Docker provider to bring up SFTP and Postgres.
+        <code>infra/aws</code> sketches S3 inbox / processed / failed buckets plus IAM — CI runs
+        <code>terraform validate</code>; you should not apply it without a backend and an account.
+      </p>
+      <pre><code>cd infra/local
+terraform init
+terraform plan</code></pre>
+
+      <h2>Run it</h2>
+      <pre><code>python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+cp samples/partners.csv data/inbox/
+file-pipeline --root data
+pytest -q</code></pre>
+      <p>After <code>docker compose up -d</code> or <code>terraform apply</code> in <code>infra/local</code>:</p>
+      <pre><code>file-pipeline --root data --sftp</code></pre>
+
+      <h2>What this is not</h2>
+      <p>
+        It is not a MOVEit or GoAnywhere clone, and it is not production. It is the interviewable
+        version of the job: a worker that fails closed, leaves an audit trail, and treats landing
+        zones as code. The HL7 companion post covers the parser that explains <em>why</em> a
+        message is bad after this pipeline’s MSH gate.
+      </p>
+
+      <p class="post-links">
+        <a href="https://github.com/ManthanKeim/file-transfer-pipeline" target="_blank" rel="noopener noreferrer">GitHub repo</a>
+        <a href="hl7-toolkit.html">HL7 toolkit post</a>
+        <a href="../index.html#projects">Back to projects</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Manthan Keim.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

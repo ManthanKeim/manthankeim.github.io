@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Parse HL7 v2 into JSON and reject bad messages with stable error codes — missing control IDs, ADT/ORU without PID.">
+  <meta name="author" content="Manthan Keim">
+  <meta property="og:title" content="Reject bad HL7 before it becomes a ticket">
+  <meta property="og:description" content="A small HL7 v2 parser and validator for healthcare interface traffic. No PHI.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://manthankeim.com/blog/hl7-toolkit.html">
+  <meta name="theme-color" content="#0b0f17">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="manifest" href="../img/site.webmanifest">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>Reject bad HL7 before it becomes a ticket | Manthan Keim</title>
+</head>
+<body data-page="blog">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="../index.html" aria-label="Manthan Keim home">Manthan <span>Keim</span></a>
+
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a data-nav-link="about" href="../index.html#about">About</a></li>
+          <li><a data-nav-link="experience" href="../index.html#experience">Experience</a></li>
+          <li><a data-nav-link="projects" href="../index.html#projects">Projects</a></li>
+          <li><a data-nav-link="research" href="../index.html#research">Research</a></li>
+          <li><a data-nav-link="blog" href="../index.html#blog">Blog</a></li>
+          <li><a data-nav-link="contact" href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="button button-secondary" href="../Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#blog">Blog</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-main">
+    <article class="container article">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="../index.html#blog">Blog</a>
+        <span aria-hidden="true">/</span>
+        <span>HL7 toolkit</span>
+      </nav>
+
+      <header class="article-hero">
+        <div class="post-meta">
+          <time datetime="2026-08-16">August 16, 2026</time>
+          <span>Python · HL7 v2 · Healthcare</span>
+        </div>
+        <h1>Reject bad HL7 before it becomes a ticket</h1>
+        <p class="lead">
+          Interface engines fail in boring, expensive ways: a partner sends a message with an empty
+          MSH-10, or an ORU with no patient segment. Downstream billing and EMR posts then fail an
+          hour later. Catching that at the edge — with a stable error code — is the job.
+        </p>
+      </header>
+
+      <figure class="article-cover">
+        <img src="../img/projects/hl7-toolkit.svg" alt="HL7 v2 parse, validate, and structured error path">
+      </figure>
+
+      <p>
+        <a href="https://github.com/ManthanKeim/hl7-toolkit" target="_blank" rel="noopener noreferrer">hl7-toolkit</a>
+        is a small HL7 v2 parser and validator. It turns a pipe-delimited message into JSON and
+        <strong>rejects</strong> messages that would fail a healthcare interface: missing MSH,
+        missing control ID, ADT/ORU without PID.
+      </p>
+      <p>
+        This is the public version of work I do on healthcare file and interface traffic. No PHI.
+        Fake names and MRNs only. The
+        <a href="file-transfer-pipeline.html">file transfer pipeline</a> uses a fast MSH gate;
+        this repo is the deeper check that explains <em>why</em> a message is bad.
+      </p>
+
+      <h2>Parse, then decide</h2>
+      <p>The flow is intentionally short:</p>
+      <ol>
+        <li>Read a raw HL7 v2 file.</li>
+        <li>Split it into segments.</li>
+        <li>Validate MSH (and PID when the message type requires a patient).</li>
+        <li>Emit JSON on success, or a structured error with a field path on failure.</li>
+      </ol>
+
+      <h2>A failure should look like an API, not a stack trace</h2>
+      <p>
+        When a control ID is missing you cannot ack or dedupe. The toolkit says that in JSON,
+        with a code you can log, alert on, and show a partner:
+      </p>
+      <pre><code>hl7kit validate tests/fixtures/missing_control_id.hl7</code></pre>
+      <pre><code>{
+  "ok": false,
+  "error": {
+    "code": "MSH_10_MISSING",
+    "message": "MSH-10 control ID is required",
+    "path": "MSH-10"
+  }
+}</code></pre>
+
+      <h2>Rules that earn their keep</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>When</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>EMPTY_MESSAGE</code></td>
+            <td>File has no content</td>
+          </tr>
+          <tr>
+            <td><code>NO_MSH</code></td>
+            <td>First segment is not MSH</td>
+          </tr>
+          <tr>
+            <td><code>MSH_9_MISSING</code></td>
+            <td>No message type</td>
+          </tr>
+          <tr>
+            <td><code>MSH_10_MISSING</code></td>
+            <td>No control ID — you cannot ack or dedupe</td>
+          </tr>
+          <tr>
+            <td><code>MSH_12_MISSING</code></td>
+            <td>No version</td>
+          </tr>
+          <tr>
+            <td><code>PID_MISSING</code></td>
+            <td>ADT / ORU / ORM without a patient segment</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Run it</h2>
+      <pre><code>python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+hl7kit validate tests/fixtures/adt_a01.hl7
+hl7kit parse tests/fixtures/adt_a01.hl7
+pytest -q</code></pre>
+
+      <h2>Why a toolkit instead of a one-off script</h2>
+      <p>
+        Healthcare interfaces accumulate special cases until nobody wants to touch them. A small
+        CLI with pytest fixtures and stable error codes is easier to talk about in an interview
+        and easier to extend when the next partner sends an ORM without PID. Pair it with the
+        pipeline post if you want the landing-zone half of the same story.
+      </p>
+
+      <p class="post-links">
+        <a href="https://github.com/ManthanKeim/hl7-toolkit" target="_blank" rel="noopener noreferrer">GitHub repo</a>
+        <a href="file-transfer-pipeline.html">File transfer pipeline post</a>
+        <a href="../index.html#projects">Back to projects</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Manthan Keim.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

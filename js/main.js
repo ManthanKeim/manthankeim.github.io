@@ -26,18 +26,27 @@ mobileNav?.querySelectorAll("a").forEach((link) => {
 });
 
 const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll('[data-nav-link]');
+const navLinks = document.querySelectorAll("[data-nav-link]");
+const activePage = document.body.dataset.page;
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+if (activePage) {
+  navLinks.forEach((link) => {
+    link.classList.toggle("active", link.dataset.navLink === activePage);
+  });
+} else if (sections.length) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href") || "";
+          const hash = href.includes("#") ? `#${href.split("#")[1]}` : href;
+          link.classList.toggle("active", hash === `#${entry.target.id}`);
+        });
       });
-    });
-  },
-  { rootMargin: "-40% 0px -50% 0px" }
-);
+    },
+    { rootMargin: "-40% 0px -50% 0px" }
+  );
 
-sections.forEach((section) => observer.observe(section));
+  sections.forEach((section) => observer.observe(section));
+}
