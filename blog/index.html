@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Writing by Manthan Keim on file transfer, HL7, and healthcare automation.">
+  <meta name="description" content="Writing by Manthan Keim on file transfer, HL7, MCP, and healthcare automation.">
   <meta name="author" content="Manthan Keim">
   <meta property="og:title" content="Blog | Manthan Keim">
-  <meta property="og:description" content="Write-ups of labs behind file transfer, validation, and HL7 at the edge.">
+  <meta property="og:description" content="Write-ups of labs behind file transfer, HL7, and MCP servers.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://manthankeim.com/blog/">
   <meta name="theme-color" content="#0b0f17">
@@ -76,13 +76,30 @@
 
       <div class="section-header">
         <h1>Blog</h1>
-        <p>Write-ups of the labs behind the work I do now — file transfer, validation, and HL7 at the edge.</p>
+        <p>Write-ups of the labs behind the work I do now — file transfer, HL7, and giving agents real tools.</p>
       </div>
 
       <div class="blog-grid">
         <article class="blog-card">
-          <a href="file-transfer-pipeline.html">
-            <img src="../img/projects/file-transfer-pipeline.svg" alt="Diagram of an inbox-validate-SFTP file pipeline" loading="lazy">
+          <a href="mcp-server.html" class="card-media">
+            <img src="../img/projects/mcp-server.svg" alt="An MCP host talking to a Python server over stdio or HTTP" width="640" height="400" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="post-meta">
+              <time datetime="2026-08-17">August 2026</time>
+              <span>Python · MCP</span>
+            </div>
+            <h3><a href="mcp-server.html">Host an MCP server from a Python script</a></h3>
+            <p>Give Cursor real tools from one Python file. stdio locally, Streamable HTTP when you host it.</p>
+            <div class="project-links">
+              <a href="mcp-server.html">Read post</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a href="file-transfer-pipeline.html" class="card-media">
+            <img src="../img/projects/file-transfer-pipeline.svg" alt="Diagram of an inbox-validate-SFTP file pipeline" width="640" height="400" loading="lazy">
           </a>
           <div class="project-body">
             <div class="post-meta">
@@ -98,8 +115,8 @@
         </article>
 
         <article class="blog-card">
-          <a href="hl7-toolkit.html">
-            <img src="../img/projects/hl7-toolkit.svg" alt="HL7 v2 message parse and validate diagram" loading="lazy">
+          <a href="hl7-toolkit.html" class="card-media">
+            <img src="../img/projects/hl7-toolkit.svg" alt="HL7 v2 message parse and validate diagram" width="640" height="400" loading="lazy">
           </a>
           <div class="project-body">
             <div class="post-meta">

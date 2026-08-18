@@ -146,6 +146,7 @@
             <span class="skill">Terraform</span>
             <span class="skill">Docker</span>
             <span class="skill">GitHub Actions</span>
+            <span class="skill">MCP</span>
             <span class="skill">APIs & Integrations</span>
           </div>
         </div>
@@ -220,7 +221,9 @@
 
         <div class="projects-grid">
           <article class="project-card">
-            <img src="img/projects/file-transfer-pipeline.svg" alt="Diagram of an inbox-validate-SFTP file pipeline" loading="lazy">
+            <div class="card-media">
+              <img src="img/projects/file-transfer-pipeline.svg" alt="Diagram of an inbox-validate-SFTP file pipeline" width="640" height="400" loading="lazy">
+            </div>
             <div class="project-body">
               <h3>File transfer pipeline</h3>
               <p>Validate inbound files, transform them to JSON, deliver over SFTP or locally, and audit every attempt. Terraform for a local Docker landing zone and AWS S3 ingest.</p>
@@ -237,7 +240,9 @@
           </article>
 
           <article class="project-card">
-            <img src="img/projects/hl7-toolkit.svg" alt="HL7 v2 message parse and validate diagram" loading="lazy">
+            <div class="card-media">
+              <img src="img/projects/hl7-toolkit.svg" alt="HL7 v2 message parse and validate diagram" width="640" height="400" loading="lazy">
+            </div>
             <div class="project-body">
               <h3>HL7 toolkit</h3>
               <p>Parse HL7 v2 into JSON and reject bad messages with stable error codes — missing control IDs, ADT/ORU without PID.</p>
@@ -254,7 +259,9 @@
           </article>
 
           <article class="project-card">
-            <img src="img/projects/project2.jpeg" alt="" loading="lazy">
+            <div class="card-media">
+              <img src="img/projects/midas.svg" alt="Data pipeline from ingest to analysis" width="640" height="400" loading="lazy">
+            </div>
             <div class="project-body">
               <h3>MIDAS Hiring Task</h3>
               <p>Python data pipeline and analysis project showcasing structured data processing.</p>
@@ -269,7 +276,9 @@
           </article>
 
           <article class="project-card">
-            <img src="img/projects/project3.jpeg" alt="" loading="lazy">
+            <div class="card-media">
+              <img src="img/projects/reddit-flair.svg" alt="NLP pipeline classifying Reddit post flair" width="640" height="400" loading="lazy">
+            </div>
             <div class="project-body">
               <h3>Reddit Flair Predictor</h3>
               <p>NLP pipeline for classifying Reddit post flair from text content.</p>
@@ -284,7 +293,9 @@
           </article>
 
           <article class="project-card">
-            <img src="img/projects/project1.jpeg" alt="" loading="lazy">
+            <div class="card-media">
+              <img src="img/projects/cloudflare.svg" alt="Full-stack app on Cloudflare Workers" width="640" height="400" loading="lazy">
+            </div>
             <div class="project-body">
               <h3>Fullstack Cloudflare Task</h3>
               <p>Full-stack JavaScript application with modern deployment patterns.</p>
@@ -299,7 +310,9 @@
           </article>
 
           <article class="project-card">
-            <img src="img/projects/project6.jpeg" alt="" loading="lazy">
+            <div class="card-media">
+              <img src="img/projects/crossplane.svg" alt="Crossplane composition functions on Kubernetes" width="640" height="400" loading="lazy">
+            </div>
             <div class="project-body">
               <h3>Crossplane Contribfest</h3>
               <p>KubeCon hands-on work with Crossplane composition functions and Kubernetes tooling.</p>
@@ -380,13 +393,30 @@
       <div class="container">
         <div class="section-header">
           <h2>Blog</h2>
-          <p>Write-ups of the labs behind the work I do now — file transfer, validation, and HL7 at the edge. <a href="blog/">All posts</a></p>
+          <p>Write-ups of the labs behind the work I do now — file transfer, HL7, and giving agents real tools. <a href="blog/">All posts</a></p>
         </div>
 
         <div class="blog-grid">
           <article class="blog-card">
-            <a href="blog/file-transfer-pipeline.html">
-              <img src="img/projects/file-transfer-pipeline.svg" alt="Diagram of an inbox-validate-SFTP file pipeline" loading="lazy">
+            <a href="blog/mcp-server.html" class="card-media">
+              <img src="img/projects/mcp-server.svg" alt="An MCP host talking to a Python server over stdio or HTTP" width="640" height="400" loading="lazy">
+            </a>
+            <div class="project-body">
+              <div class="post-meta">
+                <time datetime="2026-08-17">August 2026</time>
+                <span>Python · MCP</span>
+              </div>
+              <h3><a href="blog/mcp-server.html">Host an MCP server from a Python script</a></h3>
+              <p>Give Cursor real tools — inbox status, file hashes — from one Python file. stdio locally, Streamable HTTP when you host it.</p>
+              <div class="project-links">
+                <a href="blog/mcp-server.html">Read post</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <a href="blog/file-transfer-pipeline.html" class="card-media">
+              <img src="img/projects/file-transfer-pipeline.svg" alt="Diagram of an inbox-validate-SFTP file pipeline" width="640" height="400" loading="lazy">
             </a>
             <div class="project-body">
               <div class="post-meta">
@@ -402,8 +432,8 @@
           </article>
 
           <article class="blog-card">
-            <a href="blog/hl7-toolkit.html">
-              <img src="img/projects/hl7-toolkit.svg" alt="HL7 v2 message parse and validate diagram" loading="lazy">
+            <a href="blog/hl7-toolkit.html" class="card-media">
+              <img src="img/projects/hl7-toolkit.svg" alt="HL7 v2 message parse and validate diagram" width="640" height="400" loading="lazy">
             </a>
             <div class="project-body">
               <div class="post-meta">
