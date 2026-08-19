@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How GoAnywhere MFT actually works: resources, projects, monitors, and the audit trail when a partner drop fails.">
+  <meta name="author" content="Manthan Keim">
+  <meta property="og:title" content="GoAnywhere MFT is a landing zone with a job log">
+  <meta property="og:description" content="Resources, projects, monitors, audit. The production shape of inbox-validate-deliver — without PHI.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://manthankeim.com/blog/goanywhere-mft.html">
+  <meta name="theme-color" content="#0b0f17">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="manifest" href="../img/site.webmanifest">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>GoAnywhere MFT is a landing zone with a job log | Manthan Keim</title>
+</head>
+<body data-page="blog">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="../index.html" aria-label="Manthan Keim home">Manthan <span>Keim</span></a>
+
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a data-nav-link="about" href="../index.html#about">About</a></li>
+          <li><a data-nav-link="experience" href="../index.html#experience">Experience</a></li>
+          <li><a data-nav-link="projects" href="../index.html#projects">Projects</a></li>
+          <li><a data-nav-link="research" href="../index.html#research">Research</a></li>
+          <li><a data-nav-link="blog" href="../index.html#blog">Blog</a></li>
+          <li><a data-nav-link="contact" href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="button button-secondary" href="../Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#blog">Blog</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-main">
+    <article class="container article">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="../index.html#blog">Blog</a>
+        <span aria-hidden="true">/</span>
+        <span>GoAnywhere MFT</span>
+      </nav>
+
+      <header class="article-hero">
+        <div class="post-meta">
+          <time datetime="2026-08-18">August 18, 2026</time>
+          <span>GoAnywhere · SFTP · Healthcare</span>
+        </div>
+        <h1>GoAnywhere MFT is a landing zone with a job log</h1>
+        <p class="lead">
+          A cron job that copies files is not managed file transfer. Managed means: a named
+          partner, a folder they can write, a project that wakes up, a sink that actually
+          received the bytes, and a log you can read at 2 a.m. That is the product I live in.
+        </p>
+      </header>
+
+      <figure class="article-cover">
+        <img src="../img/projects/goanywhere-mft.svg" alt="Partner SFTP drop through a GoAnywhere project to a downstream sink, with resources and audit">
+      </figure>
+
+      <p>
+        <a href="https://www.goanywhere.com/products/goanywhere-mft" target="_blank" rel="noopener noreferrer">GoAnywhere MFT</a>
+        (Fortra) is the enterprise box around that loop. I used it after years of tickets on
+        healthcare file traffic — HL7, payments, credentials, overnight jobs that did not run.
+        This is not a vendor tour. It is how the object model maps onto the work. No PHI, no
+        client names, no production paths.
+      </p>
+      <p>
+        The Python
+        <a href="file-transfer-pipeline.html">file-transfer lab</a> on this site is the same
+        shape without the product: inbox, validate, deliver, audit. GoAnywhere is what that
+        looks like when partners, keys, and compliance are real.
+      </p>
+
+      <h2>Four objects, not a magic FTP</h2>
+      <p>Most “the file did not arrive” tickets collapse onto one of these:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>What it actually is</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Resource</td>
+            <td>Who can connect, and where they land — SFTP users, keys, folders, downstream hosts.</td>
+          </tr>
+          <tr>
+            <td>Project</td>
+            <td>The workflow: pick up, optionally encrypt or translate, put somewhere else.</td>
+          </tr>
+          <tr>
+            <td>Trigger</td>
+            <td>A schedule, a file monitor, or an API call that starts the project.</td>
+          </tr>
+          <tr>
+            <td>Audit</td>
+            <td>Job history: started, failed, retried, which resource, which file name.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        If you skip the names and only stare at a share, you will “fix” the wrong layer. A
+        partner with a dead key is not a broken project. A project that still points at last
+        year’s folder is not a network outage.
+      </p>
+
+      <h2>What a drop looks like</h2>
+      <ol>
+        <li>A trading partner authenticates to an SFTP (or FTPS / HTTPS) resource you issued.</li>
+        <li>They write into a folder that resource is allowed to see — the landing zone.</li>
+        <li>A file monitor or a scheduler starts a project.</li>
+        <li>The project moves or copies the file to an internal share, another SFTP, object storage, or an app.</li>
+        <li>The job log records success or a stable failure: auth, path, timeout, empty payload.</li>
+      </ol>
+      <p>
+        Healthcare adds HL7 into that path. GoAnywhere will move the message. It will not tell
+        you the control ID is missing. That check belongs at the edge — the
+        <a href="hl7-toolkit.html">HL7 toolkit</a> post is the public version of that gate.
+        MFT that “succeeded” with a garbage ADT is still a ticket, just later, in billing.
+      </p>
+
+      <h2>Where it breaks (and what I open first)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Symptom</th>
+            <th>First place to look</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Partner says they uploaded; we have nothing</td>
+            <td>Resource auth, chroot / virtual folder, and whether they wrote the path the monitor watches.</td>
+          </tr>
+          <tr>
+            <td>File sits in the inbox</td>
+            <td>Monitor disabled, schedule in the wrong timezone, project still “held.”</td>
+          </tr>
+          <tr>
+            <td>Job failed after pickup</td>
+            <td>Downstream resource: expired key, host key change, disk full, TLS mismatch.</td>
+          </tr>
+          <tr>
+            <td>Job succeeded, downstream is empty</td>
+            <td>Wrong sink folder, overwrite vs rename, or they dropped a zero-byte file.</td>
+          </tr>
+          <tr>
+            <td>It worked yesterday</td>
+            <td>Password rotation, IP allow list, or a project promoted without its resource.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        The audit log is the product. If you cannot answer “which job, which resource, which
+        filename, which error,” you are guessing. I would rather have a failed job with a
+        code than a silent copy that nobody can reconstruct.
+      </p>
+
+      <h2>Resources are the API</h2>
+      <p>
+        Treat connections like code, not tribal knowledge. A partner gets a dedicated user
+        and a folder tree. A downstream system gets its own resource. Projects
+        <em>select</em> resources; they should not embed passwords. When someone rotates a
+        key, you change the resource once. Every project that pointed at it picks up the
+        change. That is the whole point of a managed platform versus a pile of
+        <code>lftp</code> scripts in cron.
+      </p>
+      <p>
+        Same idea as Terraform in the lab: landing zones are declared. GoAnywhere’s
+        declaration just lives in the admin UI (and, if you are disciplined, in export /
+        promotion between test and prod).
+      </p>
+
+      <h2>What I would not do</h2>
+      <ul>
+        <li>One SFTP user shared across ten partners. When it breaks, you cannot tell who.</li>
+        <li>Monitors on a folder that also gets human uploads. You will process drafts.</li>
+        <li>A project that “fixes” bad HL7 by rewriting PID. That is an interface engine’s job, and it hides the sender’s bug.</li>
+        <li>Success email with no filename. The next ticket will be “which file?”</li>
+      </ul>
+      <p>
+        I first learned this shape on MOVEit tasks, then on GoAnywhere after an overnight
+        process died and we had to move work with XML and a new platform. The brand on the
+        box changed. The loop did not: land, decide, deliver, write it down.
+      </p>
+      <p>
+        If you want the interviewable, no-vendor version, start with the
+        <a href="file-transfer-pipeline.html">pipeline post</a>. If you want the protocol
+        that sits inside many of those files, start with
+        <a href="hl7-toolkit.html">HL7</a>.
+      </p>
+
+      <p class="post-links">
+        <a href="https://www.goanywhere.com/products/goanywhere-mft" target="_blank" rel="noopener noreferrer">GoAnywhere MFT</a>
+        <a href="file-transfer-pipeline.html">File transfer pipeline post</a>
+        <a href="hl7-toolkit.html">HL7 toolkit post</a>
+        <a href="../index.html#blog">Back to blog</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Manthan Keim.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
