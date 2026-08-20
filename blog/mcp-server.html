@@ -9,10 +9,10 @@
   <meta property="og:description" content="Give an agent real tools — inbox status, file hashes — without stuffing everything into a prompt. stdio locally, Streamable HTTP when you deploy.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://manthankeim.com/blog/mcp-server.html">
-  <meta name="theme-color" content="#0b0f17">
+  <meta name="theme-color" content="#0a192f">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
@@ -23,55 +23,28 @@
 <body data-page="blog">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container nav">
+  <header class="topbar">
+    <div class="topbar-inner">
       <a class="brand" href="../index.html" aria-label="Manthan Keim home">Manthan <span>Keim</span></a>
-
       <nav aria-label="Primary">
-        <ul class="nav-links">
-          <li><a data-nav-link="about" href="../index.html#about">About</a></li>
-          <li><a data-nav-link="experience" href="../index.html#experience">Experience</a></li>
-          <li><a data-nav-link="projects" href="../index.html#projects">Projects</a></li>
-          <li><a data-nav-link="research" href="../index.html#research">Research</a></li>
-          <li><a data-nav-link="blog" href="../index.html#blog">Blog</a></li>
-          <li><a data-nav-link="contact" href="../index.html#contact">Contact</a></li>
+        <ul class="top-nav">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#research">Research</a></li>
+          <li><a class="active" href="./">Writing</a></li>
         </ul>
       </nav>
-
-      <div class="nav-actions">
-        <a class="button button-secondary" href="../Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-        <button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </button>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
+      <a class="resume-link" href="../Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
     </div>
   </header>
 
-  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
-    <ul>
-      <li><a href="../index.html#about">About</a></li>
-      <li><a href="../index.html#experience">Experience</a></li>
-      <li><a href="../index.html#projects">Projects</a></li>
-      <li><a href="../index.html#research">Research</a></li>
-      <li><a href="../index.html#blog">Blog</a></li>
-      <li><a href="../index.html#contact">Contact</a></li>
-      <li><a href="../Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
-    </ul>
-  </nav>
-
   <main id="main" class="page-main">
-    <article class="container article">
+    <article class="article">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="../index.html">Home</a>
         <span aria-hidden="true">/</span>
-        <a href="../index.html#blog">Blog</a>
+        <a href="./">Writing</a>
         <span aria-hidden="true">/</span>
         <span>MCP server</span>
       </nav>
@@ -281,20 +254,15 @@ uv run mcp dev server.py</code></pre>
         <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener noreferrer">MCP docs</a>
         <a href="https://github.com/modelcontextprotocol/python-sdk" target="_blank" rel="noopener noreferrer">Python SDK</a>
         <a href="https://py.sdk.modelcontextprotocol.io/run/" target="_blank" rel="noopener noreferrer">Run / transports</a>
-        <a href="../index.html#blog">Back to blog</a>
+        <a href="./">All writing</a>
       </p>
     </article>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Manthan Keim.</p>
-    </div>
+    <p>&copy; <span id="year"></span> Manthan Keim. Layout inspired by <a href="https://brittanychiang.com" target="_blank" rel="noopener noreferrer">Brittany Chiang</a>.</p>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
   <script src="../js/main.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,10 @@
   <meta property="og:description" content="Building reliable automation, integrations, and data workflows in Carmel, Indiana.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://manthankeim.com">
-  <meta name="theme-color" content="#0b0f17">
+  <meta name="theme-color" content="#0a192f">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
@@ -23,329 +23,246 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="Manthan Keim home">Manthan <span>Keim</span></a>
+  <div class="layout" id="main">
+    <header class="sidebar">
+      <img class="avatar" src="img/front.JPG" alt="Portrait of Manthan Keim" width="72" height="72">
+      <h1>Manthan Keim</h1>
+      <p class="role">Automation Engineer</p>
+      <p class="lede">I build automation, integrations, and data workflows that turn repetitive work into reliable systems.</p>
 
-      <nav aria-label="Primary">
-        <ul class="nav-links">
-          <li><a data-nav-link href="#about">About</a></li>
-          <li><a data-nav-link href="#experience">Experience</a></li>
-          <li><a data-nav-link href="#projects">Projects</a></li>
-          <li><a data-nav-link href="#research">Research</a></li>
-          <li><a data-nav-link href="#blog">Blog</a></li>
-          <li><a data-nav-link href="#contact">Contact</a></li>
-        </ul>
+      <nav class="side-nav" aria-label="Primary">
+        <a data-nav-link href="#about">About</a>
+        <a data-nav-link href="#experience">Experience</a>
+        <a data-nav-link href="#projects">Projects</a>
+        <a data-nav-link href="#research">Research</a>
+        <a data-nav-link href="#writing">Writing</a>
       </nav>
 
-      <div class="nav-actions">
-        <a class="button button-secondary" href="Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-        <button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </button>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
-    </ul>
-  </nav>
-
-  <main id="main">
-    <section id="top" class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">
-            <span class="status-dot" aria-hidden="true"></span>
-            Automation Engineer · Carmel, Indiana
-          </div>
-          <h1>Building automation that keeps teams moving.</h1>
-          <p class="lead">
-            I'm Manthan Keim, an Automation Engineer at Zotec Partners. I design scripts,
-            integrations, and data workflows that turn repetitive work into reliable systems —
-            with a research background in NLP and machine learning from Purdue.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#projects">View projects</a>
-            <a class="button button-secondary" href="#contact">Get in touch</a>
-          </div>
-          <div class="social-links" aria-label="Social links">
-            <a href="https://github.com/ManthanKeim" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-3.01.65-3.64-1.45-3.64-1.45-.49-1.24-1.19-1.57-1.19-1.57-.98-.67.07-.66.07-.66 1.08.08 1.65 1.11 1.65 1.11.96 1.65 2.52 1.17 3.13.9.1-.7.38-1.17.69-1.44-2.4-.27-4.93-1.2-4.93-5.34 0-1.18.42-2.15 1.11-2.9-.11-.27-.48-1.36.11-2.83 0 0 .91-.29 2.98 1.11a10.3 10.3 0 0 1 2.7-.36c.92 0 1.84.12 2.7.36 2.07-1.4 2.98-1.11 2.98-1.11.59 1.47.22 2.56.11 2.83.69.75 1.11 1.72 1.11 2.9 0 4.15-2.54 5.06-4.95 5.33.39.34.73 1.01.73 2.04 0 1.47-.01 2.66-.01 3.02 0 .26.18.57.69.47A10 10 0 0 0 12 2Z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/manthankeim/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8.5h4V23h-4V8.5Zm7 0h3.84v1.97h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-6.44c0-1.54-.03-3.52-2.14-3.52-2.14 0-2.47 1.67-2.47 3.39V23h-4V8.5Z"/></svg>
-            </a>
-            <a href="https://twitter.com/manthankeim" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
-            </a>
-            <a href="mailto:keimmanthan@gmail.com" aria-label="Email">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m4 7 8 5 8-5M4 7v10h16V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
+      <div class="sidebar-foot">
+        <a class="resume-link" href="Manthan_Keim_Resume.pdf" target="_blank" rel="noopener noreferrer">View résumé</a>
+        <div class="social-links" aria-label="Social links">
+          <a href="https://github.com/ManthanKeim" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-3.01.65-3.64-1.45-3.64-1.45-.49-1.24-1.19-1.57-1.19-1.57-.98-.67.07-.66.07-.66 1.08.08 1.65 1.11 1.65 1.11.96 1.65 2.52 1.17 3.13.9.1-.7.38-1.17.69-1.44-2.4-.27-4.93-1.2-4.93-5.34 0-1.18.42-2.15 1.11-2.9-.11-.27-.48-1.36.11-2.83 0 0 .91-.29 2.98 1.11a10.3 10.3 0 0 1 2.7-.36c.92 0 1.84.12 2.7.36 2.07-1.4 2.98-1.11 2.98-1.11.59 1.47.22 2.56.11 2.83.69.75 1.11 1.72 1.11 2.9 0 4.15-2.54 5.06-4.95 5.33.39.34.73 1.01.73 2.04 0 1.47-.01 2.66-.01 3.02 0 .26.18.57.69.47A10 10 0 0 0 12 2Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/manthankeim/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8.5h4V23h-4V8.5Zm7 0h3.84v1.97h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-6.44c0-1.54-.03-3.52-2.14-3.52-2.14 0-2.47 1.67-2.47 3.39V23h-4V8.5Z"/></svg>
+          </a>
+          <a href="https://twitter.com/manthankeim" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+          </a>
+          <a href="mailto:keimmanthan@gmail.com" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m4 7 8 5 8-5M4 7v10h16V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
-
-        <figure class="profile-card">
-          <img src="img/front.JPG" alt="Portrait of Manthan Keim" width="480" height="600" loading="eager">
-          <figcaption>Automation · Integrations · Data workflows</figcaption>
-        </figure>
       </div>
-    </section>
+    </header>
 
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>About</h2>
-          <p>
-            I combine engineering discipline with research curiosity — building practical automation
-            today while drawing on years of NLP, data science, and full-stack project work.
-          </p>
-        </div>
+    <main class="content">
+      <section id="about" class="section">
+        <h2 class="section-label">About</h2>
+        <p>
+          I'm an Automation Engineer at <a class="accent" href="https://www.zotecpartners.com/" target="_blank" rel="noopener noreferrer">Zotec Partners</a>
+          in Carmel, Indiana. I design scripts, integrations, and data workflows that keep operational
+          systems moving — from HL7 and SFTP pipelines to the audit trail that tells you what actually happened.
+        </p>
+        <p>
+          Before this I completed an MS in Technology Leadership &amp; Innovation at
+          <a class="accent" href="https://www.purdue.edu/" target="_blank" rel="noopener noreferrer">Purdue University</a>,
+          with research in NLP, computational social science, and how data scientists actually debug notebooks.
+          I still write about the labs behind the work: managed file transfer, healthcare interfaces, and giving agents real tools.
+        </p>
+        <p>
+          When I'm not in a job log, I'm usually building something small enough to fail closed — then writing it up.
+        </p>
+        <ul class="skill-list" aria-label="Skills">
+          <li>Python</li>
+          <li>Automation</li>
+          <li>HL7</li>
+          <li>SFTP</li>
+          <li>GoAnywhere</li>
+          <li>SQL</li>
+          <li>Terraform</li>
+          <li>Docker</li>
+          <li>GitHub Actions</li>
+          <li>MCP</li>
+          <li>APIs</li>
+        </ul>
+      </section>
 
-        <div class="about-grid">
-          <article class="card">
-            <h3>What I do</h3>
+      <section id="experience" class="section">
+        <h2 class="section-label">Experience</h2>
+
+        <article class="job">
+          <div class="job-dates">2024 — Present</div>
+          <div>
+            <h3>Automation Engineer · <span class="org">Zotec Partners</span></h3>
             <p>
-              At Zotec Partners I focus on automation and integrations that improve operational
-              reliability — from scripting repetitive tasks to working with structured data,
-              logs, and pipeline tooling.
+              Building automation, integrations, and tooling that streamline workflows and improve
+              reliability across operational systems — file transfer, HL7, and the monitors around them.
             </p>
-          </article>
-          <article class="card">
-            <h3>Background</h3>
-            <ul>
-              <li>MS Technology Leadership & Innovation, Purdue University</li>
-              <li>Research experience in NLP, computational social science, and ML</li>
-              <li>Former Hack Club president and community builder</li>
+            <ul class="tags">
+              <li>Python</li>
+              <li>GoAnywhere</li>
+              <li>HL7</li>
+              <li>SFTP</li>
             </ul>
-          </article>
-        </div>
-
-        <div class="section" style="padding-bottom: 0;">
-          <div class="skills" aria-label="Skills">
-            <span class="skill">Python</span>
-            <span class="skill">Automation</span>
-            <span class="skill">HL7</span>
-            <span class="skill">SFTP</span>
-            <span class="skill">GoAnywhere</span>
-            <span class="skill">SQL</span>
-            <span class="skill">Terraform</span>
-            <span class="skill">Docker</span>
-            <span class="skill">GitHub Actions</span>
-            <span class="skill">MCP</span>
-            <span class="skill">APIs & Integrations</span>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <section id="experience" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Experience</h2>
-          <p>A mix of industry automation work, research, and technical leadership.</p>
-        </div>
+        <article class="job">
+          <div class="job-dates">Internship</div>
+          <div>
+            <h3>File Management Intern · <span class="org">Zotec Partners</span></h3>
+            <p>
+              Resolved service tickets involving HL7 files, pipeline logs, patient payment data,
+              and client credentials — a foundation in healthcare data operations.
+            </p>
+            <ul class="tags">
+              <li>HL7</li>
+              <li>Tickets</li>
+              <li>Healthcare data</li>
+            </ul>
+          </div>
+        </article>
 
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="timeline-meta">Present</div>
-            <div>
-              <h3>Automation Engineer</h3>
-              <div class="company">Zotec Partners · Carmel, IN</div>
-              <p>
-                Building automation, integrations, and tooling that streamline workflows and improve
-                reliability across operational systems.
-              </p>
-            </div>
-          </article>
+        <article class="job">
+          <div class="job-dates">Graduate</div>
+          <div>
+            <h3>MS Technology Leadership &amp; Innovation · <span class="org">Purdue University</span></h3>
+            <p>
+              Coursework and thesis work spanning NLP, data science, and computational research —
+              including text classification, misinformation, and social data analysis.
+            </p>
+            <ul class="tags">
+              <li>NLP</li>
+              <li>Research</li>
+              <li>Python</li>
+            </ul>
+          </div>
+        </article>
 
-          <article class="timeline-item">
-            <div class="timeline-meta">Internship</div>
-            <div>
-              <h3>File Management Intern</h3>
-              <div class="company">Zotec Partners · Carmel, IN</div>
-              <p>
-                Resolved service tickets involving HL7 files, pipeline logs, patient payment data,
-                and client credentials — developing a strong foundation in healthcare data operations.
-              </p>
-            </div>
-          </article>
+        <article class="job">
+          <div class="job-dates">Leadership</div>
+          <div>
+            <h3>President &amp; Founder · <span class="org">Hack Club MAIT</span></h3>
+            <p>
+              Led a student community of 15–20 builders, mentoring peers on web projects,
+              apps, and technical experimentation.
+            </p>
+          </div>
+        </article>
+      </section>
 
-          <article class="timeline-item">
-            <div class="timeline-meta">Graduate</div>
-            <div>
-              <h3>MS Technology Leadership & Innovation</h3>
-              <div class="company">Purdue University · West Lafayette, IN</div>
-              <p>
-                Coursework and thesis work spanning NLP, data science, and computational research —
-                including projects on text classification, misinformation, and social data analysis.
-              </p>
-            </div>
-          </article>
+      <section id="projects" class="section">
+        <h2 class="section-label">Projects</h2>
 
-          <article class="timeline-item">
-            <div class="timeline-meta">Leadership</div>
-            <div>
-              <h3>President & Founder</h3>
-              <div class="company">Hack Club MAIT</div>
-              <p>
-                Led a student community of 15–20 builders, mentoring peers on web projects,
-                apps, and technical experimentation.
-              </p>
+        <article class="work-item">
+          <img src="img/projects/file-transfer-pipeline.svg" alt="Diagram of an inbox-validate-SFTP file pipeline" width="140" height="88" loading="lazy">
+          <div>
+            <h3>File transfer pipeline</h3>
+            <p>Validate inbound files, transform them to JSON, deliver over SFTP or locally, and audit every attempt. Terraform for a local Docker landing zone and AWS S3 ingest.</p>
+            <ul class="tags">
+              <li>Python</li>
+              <li>Terraform</li>
+              <li>SFTP</li>
+            </ul>
+            <div class="meta-links">
+              <a href="blog/file-transfer-pipeline.html">Post</a>
+              <a href="https://github.com/ManthanKeim/file-transfer-pipeline" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
+          </div>
+        </article>
 
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Selected projects</h2>
-          <p>Labs that match the work I do now — file transfer, HL7, Terraform — plus selected earlier builds.</p>
-        </div>
+        <article class="work-item">
+          <img src="img/projects/hl7-toolkit.svg" alt="HL7 v2 message parse and validate diagram" width="140" height="88" loading="lazy">
+          <div>
+            <h3>HL7 toolkit</h3>
+            <p>Parse HL7 v2 into JSON and reject bad messages with stable error codes — missing control IDs, ADT/ORU without PID.</p>
+            <ul class="tags">
+              <li>Python</li>
+              <li>HL7</li>
+              <li>Healthcare</li>
+            </ul>
+            <div class="meta-links">
+              <a href="blog/hl7-toolkit.html">Post</a>
+              <a href="https://github.com/ManthanKeim/hl7-toolkit" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
 
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="card-media">
-              <img src="img/projects/file-transfer-pipeline.svg" alt="Diagram of an inbox-validate-SFTP file pipeline" width="640" height="400" loading="lazy">
+        <article class="work-item">
+          <img src="img/projects/midas.svg" alt="Data pipeline from ingest to analysis" width="140" height="88" loading="lazy">
+          <div>
+            <h3>MIDAS Hiring Task</h3>
+            <p>Python data pipeline and analysis project showcasing structured data processing.</p>
+            <ul class="tags">
+              <li>Python</li>
+              <li>Data</li>
+            </ul>
+            <div class="meta-links">
+              <a href="https://github.com/ManthanKeim/MIDAS_Hiring_Task_Manthan" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
-            <div class="project-body">
-              <h3>File transfer pipeline</h3>
-              <p>Validate inbound files, transform them to JSON, deliver over SFTP or locally, and audit every attempt. Terraform for a local Docker landing zone and AWS S3 ingest.</p>
-              <div class="project-tags">
-                <span>Python</span>
-                <span>Terraform</span>
-                <span>SFTP</span>
-              </div>
-              <div class="project-links">
-                <a href="blog/file-transfer-pipeline.html">Read post</a>
-                <a href="https://github.com/ManthanKeim/file-transfer-pipeline" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <div class="card-media">
-              <img src="img/projects/hl7-toolkit.svg" alt="HL7 v2 message parse and validate diagram" width="640" height="400" loading="lazy">
+        <article class="work-item">
+          <img src="img/projects/reddit-flair.svg" alt="NLP pipeline classifying Reddit post flair" width="140" height="88" loading="lazy">
+          <div>
+            <h3>Reddit Flair Predictor</h3>
+            <p>NLP pipeline for classifying Reddit post flair from text content.</p>
+            <ul class="tags">
+              <li>Python</li>
+              <li>NLP</li>
+            </ul>
+            <div class="meta-links">
+              <a href="https://github.com/ManthanKeim/Reddit-Flair-Predictor" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
-            <div class="project-body">
-              <h3>HL7 toolkit</h3>
-              <p>Parse HL7 v2 into JSON and reject bad messages with stable error codes — missing control IDs, ADT/ORU without PID.</p>
-              <div class="project-tags">
-                <span>Python</span>
-                <span>HL7</span>
-                <span>Healthcare</span>
-              </div>
-              <div class="project-links">
-                <a href="blog/hl7-toolkit.html">Read post</a>
-                <a href="https://github.com/ManthanKeim/hl7-toolkit" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <div class="card-media">
-              <img src="img/projects/midas.svg" alt="Data pipeline from ingest to analysis" width="640" height="400" loading="lazy">
+        <article class="work-item">
+          <img src="img/projects/cloudflare.svg" alt="Full-stack app on Cloudflare Workers" width="140" height="88" loading="lazy">
+          <div>
+            <h3>Fullstack Cloudflare Task</h3>
+            <p>Full-stack JavaScript application with modern deployment patterns.</p>
+            <ul class="tags">
+              <li>JavaScript</li>
+              <li>Full-stack</li>
+            </ul>
+            <div class="meta-links">
+              <a href="https://github.com/ManthanKeim/Fullstack_Task_Cloudflare" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
-            <div class="project-body">
-              <h3>MIDAS Hiring Task</h3>
-              <p>Python data pipeline and analysis project showcasing structured data processing.</p>
-              <div class="project-tags">
-                <span>Python</span>
-                <span>Data</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/ManthanKeim/MIDAS_Hiring_Task_Manthan" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <div class="card-media">
-              <img src="img/projects/reddit-flair.svg" alt="NLP pipeline classifying Reddit post flair" width="640" height="400" loading="lazy">
+        <article class="work-item">
+          <img src="img/projects/crossplane.svg" alt="Crossplane composition functions on Kubernetes" width="140" height="88" loading="lazy">
+          <div>
+            <h3>Crossplane Contribfest</h3>
+            <p>KubeCon hands-on work with Crossplane composition functions and Kubernetes tooling.</p>
+            <ul class="tags">
+              <li>Kubernetes</li>
+              <li>Cloud</li>
+            </ul>
+            <div class="meta-links">
+              <a href="https://github.com/ManthanKeim/contribfest" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
-            <div class="project-body">
-              <h3>Reddit Flair Predictor</h3>
-              <p>NLP pipeline for classifying Reddit post flair from text content.</p>
-              <div class="project-tags">
-                <span>Python</span>
-                <span>NLP</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/ManthanKeim/Reddit-Flair-Predictor" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <div class="card-media">
-              <img src="img/projects/cloudflare.svg" alt="Full-stack app on Cloudflare Workers" width="640" height="400" loading="lazy">
-            </div>
-            <div class="project-body">
-              <h3>Fullstack Cloudflare Task</h3>
-              <p>Full-stack JavaScript application with modern deployment patterns.</p>
-              <div class="project-tags">
-                <span>JavaScript</span>
-                <span>Full-stack</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/ManthanKeim/Fullstack_Task_Cloudflare" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </div>
-          </article>
+        <p class="archive-note"><a href="https://github.com/ManthanKeim" target="_blank" rel="noopener noreferrer">View the full archive on GitHub →</a></p>
+      </section>
 
-          <article class="project-card">
-            <div class="card-media">
-              <img src="img/projects/crossplane.svg" alt="Crossplane composition functions on Kubernetes" width="640" height="400" loading="lazy">
-            </div>
-            <div class="project-body">
-              <h3>Crossplane Contribfest</h3>
-              <p>KubeCon hands-on work with Crossplane composition functions and Kubernetes tooling.</p>
-              <div class="project-tags">
-                <span>Kubernetes</span>
-                <span>Cloud</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/ManthanKeim/contribfest" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+      <section id="research" class="section">
+        <h2 class="section-label">Research</h2>
+        <p>
+          Publications from Purdue, listed on
+          <a href="https://scholar.google.com/citations?user=OyKZGzoAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.
+        </p>
 
-    <section id="research" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Research</h2>
-          <p>
-            Publications from my time at Purdue, pulled from
-            <a href="https://scholar.google.com/citations?user=OyKZGzoAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.
-          </p>
-        </div>
-
-        <div class="pub-list">
-          <article class="pub-card">
-            <header>
-              <span class="pub-venue">FSE 2025 · PACMSE</span>
-              <span class="pub-year">2025 · 5 citations</span>
-            </header>
+        <article class="write-item">
+          <div class="year">2025</div>
+          <div>
             <h3>Towards Understanding Fine-Grained Programming Mistakes and Fixing Patterns in Data Science</h3>
             <p class="pub-authors">
               Wei-Hao Chen, Jia Lin Cheoh, <span class="me">Manthan Keim</span>, Sabine Brunswicker, Tianyi Zhang
@@ -355,158 +272,85 @@
               We analyzed 390 Jupyter notebooks from a six-week competition plus interviews with 10 practitioners, and found
               5 debugging operations and 12 fix patterns that existing GitHub/Kaggle studies miss.
             </p>
-            <div class="pub-links">
+            <div class="meta-links">
               <a href="https://doi.org/10.1145/3729352" target="_blank" rel="noopener noreferrer">DOI</a>
               <a href="https://ferranschen.github.io/site/fse2025/fse_draft.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-              <a href="https://ferranschen.github.io/site/fse2025/fse2025.html" target="_blank" rel="noopener noreferrer">Project page</a>
+              <a href="https://ferranschen.github.io/site/fse2025/fse2025.html" target="_blank" rel="noopener noreferrer">Project</a>
               <a href="https://scholar.google.com/citations?user=OyKZGzoAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Scholar</a>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="pub-card">
-            <header>
-              <span class="pub-venue">MS Thesis · Purdue University</span>
-              <span class="pub-year">2024</span>
-            </header>
+        <article class="write-item">
+          <div class="year">2024</div>
+          <div>
             <h3>Assessing the Individual Development Plan Survey for Graduate Students in Purdue Polytechnic</h3>
-            <p class="pub-authors"><span class="me">Manthan Keim</span></p>
+            <p class="pub-authors"><span class="me">Manthan Keim</span> · MS Thesis, Purdue University</p>
             <p>
               Graduate students are asked to grow as researchers, professionals, and people at the same time — and most
               advising frameworks only cover one of those. This thesis evaluates an Individual Development Plan tailored
               to Purdue Polytechnic, treating the IDP as a student-centered tool that ties academic, career, and personal
               goals to structured feedback.
             </p>
-            <div class="pub-links">
+            <div class="meta-links">
               <a href="https://doi.org/10.25394/pgs.28012016" target="_blank" rel="noopener noreferrer">DOI / Hammer</a>
               <a href="https://scholar.google.com/citations?user=OyKZGzoAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Scholar</a>
             </div>
-          </article>
-        </div>
+          </div>
+        </article>
+      </section>
 
-        <p class="scholar-note">
-          Full profile:
-          <a href="https://scholar.google.com/citations?user=OyKZGzoAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">scholar.google.com/citations?user=OyKZGzoAAAAJ</a>
+      <section id="writing" class="section">
+        <h2 class="section-label" id="blog">Writing</h2>
+        <p>Labs and platforms behind the work I do now — MFT, HL7, and giving agents real tools.</p>
+
+        <a class="write-item" href="blog/goanywhere-mft.html">
+          <div class="year">2026</div>
+          <div>
+            <h3>GoAnywhere MFT is a landing zone with a job log</h3>
+            <p>Resources, projects, monitors, audit. How a partner drop actually moves — and what I open first when it does not.</p>
+          </div>
+        </a>
+
+        <a class="write-item" href="blog/mcp-server.html">
+          <div class="year">2026</div>
+          <div>
+            <h3>Host an MCP server from a Python script</h3>
+            <p>Give Cursor real tools — inbox status, file hashes — from one Python file. stdio locally, Streamable HTTP when you host it.</p>
+          </div>
+        </a>
+
+        <a class="write-item" href="blog/file-transfer-pipeline.html">
+          <div class="year">2026</div>
+          <div>
+            <h3>A file transfer pipeline you can actually fail closed</h3>
+            <p>Inbox, validate, transform to JSON, deliver over SFTP or locally, and write every attempt to an audit log.</p>
+          </div>
+        </a>
+
+        <a class="write-item" href="blog/hl7-toolkit.html">
+          <div class="year">2026</div>
+          <div>
+            <h3>Reject bad HL7 before it becomes a ticket</h3>
+            <p>Parse HL7 v2 into JSON and fail with a stable error code when MSH-10 is empty or an ADT has no PID.</p>
+          </div>
+        </a>
+
+        <p class="archive-note"><a href="blog/">View all posts →</a></p>
+
+        <p id="contact">
+          Open to conversations about automation, integrations, and data workflows —
+          <a href="mailto:keimmanthan@gmail.com">keimmanthan@gmail.com</a>.
         </p>
-      </div>
-    </section>
 
-    <section id="blog" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Blog</h2>
-          <p>Write-ups of the labs and platforms behind the work I do now — MFT, HL7, and giving agents real tools. <a href="blog/">All posts</a></p>
-        </div>
+        <p class="credit">
+          &copy; <span id="year"></span> Manthan Keim. Layout inspired by
+          <a href="https://brittanychiang.com" target="_blank" rel="noopener noreferrer">Brittany Chiang</a>.
+        </p>
+      </section>
+    </main>
+  </div>
 
-        <div class="blog-grid">
-          <article class="blog-card">
-            <a href="blog/goanywhere-mft.html" class="card-media">
-              <img src="img/projects/goanywhere-mft.svg" alt="Partner SFTP drop through a GoAnywhere project to a downstream sink" width="640" height="400" loading="lazy">
-            </a>
-            <div class="project-body">
-              <div class="post-meta">
-                <time datetime="2026-08-18">August 2026</time>
-                <span>GoAnywhere · SFTP</span>
-              </div>
-              <h3><a href="blog/goanywhere-mft.html">GoAnywhere MFT is a landing zone with a job log</a></h3>
-              <p>Resources, projects, monitors, audit. How a partner drop actually moves — and what I open first when it does not.</p>
-              <div class="project-links">
-                <a href="blog/goanywhere-mft.html">Read post</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="blog-card">
-            <a href="blog/mcp-server.html" class="card-media">
-              <img src="img/projects/mcp-server.svg" alt="An MCP host talking to a Python server over stdio or HTTP" width="640" height="400" loading="lazy">
-            </a>
-            <div class="project-body">
-              <div class="post-meta">
-                <time datetime="2026-08-17">August 2026</time>
-                <span>Python · MCP</span>
-              </div>
-              <h3><a href="blog/mcp-server.html">Host an MCP server from a Python script</a></h3>
-              <p>Give Cursor real tools — inbox status, file hashes — from one Python file. stdio locally, Streamable HTTP when you host it.</p>
-              <div class="project-links">
-                <a href="blog/mcp-server.html">Read post</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="blog-card">
-            <a href="blog/file-transfer-pipeline.html" class="card-media">
-              <img src="img/projects/file-transfer-pipeline.svg" alt="Diagram of an inbox-validate-SFTP file pipeline" width="640" height="400" loading="lazy">
-            </a>
-            <div class="project-body">
-              <div class="post-meta">
-                <time datetime="2026-08-16">August 2026</time>
-                <span>Python · Terraform · SFTP</span>
-              </div>
-              <h3><a href="blog/file-transfer-pipeline.html">A file transfer pipeline you can actually fail closed</a></h3>
-              <p>Inbox, validate, transform to JSON, deliver over SFTP or locally, and write every attempt to an audit log. The boring failures — empty files, bad encoding, duplicate drops, SFTP outages — are the point.</p>
-              <div class="project-links">
-                <a href="blog/file-transfer-pipeline.html">Read post</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="blog-card">
-            <a href="blog/hl7-toolkit.html" class="card-media">
-              <img src="img/projects/hl7-toolkit.svg" alt="HL7 v2 message parse and validate diagram" width="640" height="400" loading="lazy">
-            </a>
-            <div class="project-body">
-              <div class="post-meta">
-                <time datetime="2026-08-16">August 2026</time>
-                <span>Python · HL7 v2</span>
-              </div>
-              <h3><a href="blog/hl7-toolkit.html">Reject bad HL7 before it becomes a ticket</a></h3>
-              <p>Parse HL7 v2 into JSON and fail with a stable error code when MSH-10 is empty or an ADT has no PID. Interface engines fail in boring, expensive ways — catch that at the edge.</p>
-              <div class="project-links">
-                <a href="blog/hl7-toolkit.html">Read post</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Contact</h2>
-          <p>Open to conversations about automation, integrations, data workflows, and interesting engineering problems.</p>
-        </div>
-
-        <div class="contact-grid">
-          <article class="card contact-card">
-            <strong>Email</strong>
-            <a href="mailto:keimmanthan@gmail.com">keimmanthan@gmail.com</a>
-          </article>
-          <article class="card contact-card">
-            <strong>Location</strong>
-            Carmel, Indiana, USA
-          </article>
-          <article class="card contact-card">
-            <strong>LinkedIn</strong>
-            <a href="https://www.linkedin.com/in/manthankeim/" target="_blank" rel="noopener noreferrer">linkedin.com/in/manthankeim</a>
-          </article>
-          <article class="card contact-card">
-            <strong>GitHub</strong>
-            <a href="https://github.com/ManthanKeim" target="_blank" rel="noopener noreferrer">github.com/ManthanKeim</a>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Manthan Keim. Built with semantic HTML, modern CSS, and minimal JavaScript.</p>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
