@@ -1,8 +1,8 @@
 const root = document.documentElement;
 const menuToggle = document.querySelector(".menu-toggle");
 const mobileNav = document.querySelector(".mobile-nav");
-const themeToggle = document.querySelector(".theme-toggle");
-const siteHeader = document.querySelector(".site-header");
+const themeToggles = document.querySelectorAll(".theme-toggle");
+const siteHeader = document.querySelector(".site-header, .mobile-bar");
 
 const preferredTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
 const savedTheme = localStorage.getItem("theme") || preferredTheme;
@@ -14,10 +14,16 @@ const onScroll = () => {
 onScroll();
 window.addEventListener("scroll", onScroll, { passive: true });
 
-themeToggle?.addEventListener("click", () => {
-  const nextTheme = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+const setTheme = (nextTheme) => {
   root.setAttribute("data-theme", nextTheme);
   localStorage.setItem("theme", nextTheme);
+};
+
+themeToggles.forEach((toggle) => {
+  toggle.addEventListener("click", () => {
+    const nextTheme = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    setTheme(nextTheme);
+  });
 });
 
 menuToggle?.addEventListener("click", () => {
@@ -28,7 +34,7 @@ menuToggle?.addEventListener("click", () => {
 mobileNav?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     mobileNav.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-expanded", "false");
   });
 });
 

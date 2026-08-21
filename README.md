@@ -29,4 +29,4 @@ Legacy routes (`about.html`, `work.html`, `contact.html`, `research.html`, `blog
 
 Last updated: August 2026.
 
-Editorial layout: Fraunces + Plus Jakarta Sans, warm gold on ink, numbered sections, and a bento project grid.
+Editorial home is a left-rail studio layout (Space Grotesk + IBM Plex Sans, teal on charcoal). Inner blog pages share the same tokens.
