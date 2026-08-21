@@ -2,10 +2,17 @@ const root = document.documentElement;
 const menuToggle = document.querySelector(".menu-toggle");
 const mobileNav = document.querySelector(".mobile-nav");
 const themeToggle = document.querySelector(".theme-toggle");
+const siteHeader = document.querySelector(".site-header");
 
 const preferredTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
 const savedTheme = localStorage.getItem("theme") || preferredTheme;
 root.setAttribute("data-theme", savedTheme);
+
+const onScroll = () => {
+  siteHeader?.classList.toggle("is-scrolled", window.scrollY > 8);
+};
+onScroll();
+window.addEventListener("scroll", onScroll, { passive: true });
 
 themeToggle?.addEventListener("click", () => {
   const nextTheme = root.getAttribute("data-theme") === "light" ? "dark" : "light";

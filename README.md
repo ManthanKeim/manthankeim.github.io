@@ -28,3 +28,5 @@ Open [http://localhost:8080](http://localhost:8080).
 Legacy routes (`about.html`, `work.html`, `contact.html`, `research.html`, `blog.html`) redirect to page sections or `/blog/`.
 
 Last updated: August 2026.
+
+Editorial layout: Fraunces + Plus Jakarta Sans, warm gold on ink, numbered sections, and a bento project grid.
